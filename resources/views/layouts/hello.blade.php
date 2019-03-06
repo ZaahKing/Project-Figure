@@ -62,7 +62,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">__Previous__</span>
         </a>
-        <a href="#caruselHello" class="carousel-control-next" role="button" data-slide="prev">
+        <a href="#caruselHello" class="carousel-control-next" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">__Next__</span>
         </a>
