@@ -5,4 +5,4 @@ This is simple web app, which helps to learn informational pairs like foreign wo
 
 
 
-* Zaah King *
+*Zaah King*

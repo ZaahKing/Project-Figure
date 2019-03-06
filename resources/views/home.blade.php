@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => Auth::user()->name.' __home page__'])
 
 @section('content')
 <div class="container">
