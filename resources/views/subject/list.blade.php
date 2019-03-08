@@ -15,9 +15,9 @@
                 <div class="card-header bg-lightblue">
                     <h4>{{$item->name}}<div class="btn-group float-right" role="group" aria-label="Basic example"> 
                     <a class="btn btn-outline-dark btn-sm" href="{{route('subject.edit', ['id' => $item->id])}}">
-                        <i class="fa fa-edit"></i></a>
+                        <i class="fas fa-pen"></i></a>
                     <button class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#dellingForm" role="delSubj"  data-subj-id="{{$item->id}}" data-subj-name="{{$item->name}}">
-                        <i class="fa fa-trash-alt"></i></button></div></h4>
+                        <i class="far fa-trash-alt"></i></button></div></h4>
                 </div>
                 <div class="card-body mb-auto">
                     <p class="">{{$item->description}}</p></div>
@@ -41,7 +41,7 @@
             </button>
         </div>
         <div class="modal-body">
-            @include('subject.editForm')
+            @include('subject.create_form')
         </div>
     </div>
 </div>

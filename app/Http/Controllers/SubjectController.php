@@ -31,10 +31,24 @@ class SubjectController extends Controller
         ]);
         return redirect($request->input('url'));
     }
+
     public function Edit($id)
     {
-        $subj = Subject::find($id);
-        $subj->url = url()->previous();
-        return $subj;
+        $subject = Subject::find($id);
+        $subject->url = url()->previous();
+        return view('subject.edit', compact('subject'));
+    }
+
+    public function Update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), Subject::validationMap);
+        if ($validator->fails()) return redirect()->route('subject.edit', [$id])->withInput()->withErrors($validator);
+        Subject::where('id', $id)
+            ->where('user_id', \Auth::id())
+            ->update([
+                'name' => $request->get('name'),
+                'description' => $request->get('description'),
+            ]);
+        return redirect()->route('subject.list');
     }
 }

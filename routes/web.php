@@ -24,4 +24,5 @@ Route::prefix('subject')->middleware(['auth'])->group(function(){
     Route::post('/add', 'SubjectController@Create')->name('subject.add');
     Route::post('/delete', 'SubjectController@Delete')->name('subject.delete');   
     Route::get('/edit/{id}', 'SubjectController@Edit')->name('subject.edit');   
+    Route::post('/edit/{id}', 'SubjectController@Update')->name('subject.update');   
 });
