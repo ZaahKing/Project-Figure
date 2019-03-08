@@ -39,15 +39,10 @@ class DeckController extends Controller
         return $deck;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function Edit($id)
     {
-        //
+        $deck = Deck::find($id);
+        return view('deck.edit', compact('deck'));
     }
 
     /**
@@ -59,7 +54,15 @@ class DeckController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), Deck::validationMap);
+        if ($validator->fails()) return redirect()->route('deck.edit', [$id])->withInput()->withErrors($validator);
+        Deck::where('id', $id)
+            ->where('user_id', \Auth::id())
+            ->update([
+            'name' => $request->input('name'),
+            'subject_id' => $request->input('subject_id'),
+        ]);
+        return redirect()->route('deck.list');
     }
 
     /**
@@ -68,9 +71,10 @@ class DeckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function Destroy(Request $request)
     {
-        //
+        Deck::destroy($request->input('id'));
+        return redirect()->back();
     }
 
     public function Action(Request $request)

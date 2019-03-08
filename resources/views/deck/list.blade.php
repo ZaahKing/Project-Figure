@@ -9,7 +9,8 @@
             <button type="submit" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
             <button type="submit" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i>{{__('Label.Sets.Add')}}</a>
-            <button id="massDel" type="button" name="Action" value="Delete" class="btn btn-danger" data-grope-enebled="list">{{__('Label.Delete')}}</button>   
+            <button id="massDel" type="button" name="Action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
+                            data-target="#massDellingForm">{{__('Label.Delete')}}</button>   
         </div>
     </div>
     </nav>
@@ -36,8 +37,8 @@
                     <a class="btn btn-success btn-sm" href="Test/Avers/'.$item->Id"><i class="fa fa-rocket"></i> {{__('Menu.Test')}}</a>
                     <a class="btn btn-success btn-sm" href="Test/Revers/.$item->Id ?>"><i class="fa fa-reply-all"></i> {{__('Menu.ReversTest')}}</a> 
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-info btn-sm" href="Sets/View/'.$item->Id"><i class="fa fa-eye"></i></a>
-                        <a class="btn btn-info btn-sm" href="Sets/Edit/'.$item->Id"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-info btn-sm" href="{{route('deck.show', [$id = $deck->id])}}"><i class="fa fa-eye"></i></a>
+                        <a class="btn btn-info btn-sm" href="{{route('deck.edit', [$id => $deck->id])}}"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-danger btn-sm"
                             href="#"
                             data-toggle="modal"
@@ -85,9 +86,10 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="setForm" action="/Sets/Delete"  method="POST">
+            <form id="setForm" action="{{route('deck.delete')}}"  method="POST">
+            @csrf
                 <label>{{__('Label.Subjects.Warn')}} <span id='deckName' class="text text-danger">$Model->Name;</span>?</label>
-                <input name='Id' type='hidden' value='1232123' >
+                <input name='id' type='hidden' value='1232123' >
                 <div class="form-group text-right">
                 <input type="submit" value="{{__('Label.Delete')}}" class="btn btn-danger">
                 </div>
@@ -131,10 +133,6 @@ $(function(){
     $("#addingForm").on('show.bs.modal', function (event) {
         $(this).find('input[name=name]').focus();
     }); 
-
-    $('#massDel').on('click', function(event){
-        $("#massDellingForm").modal('show');
-    });
 
  $('#confirmMassDeletion').on('click', function(event){
         $("form[name='TestRequest']").submit();
