@@ -8,7 +8,7 @@
 @else
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="/Sets/" class="nav-link">{{__('Menu.Decks')}}</a>
+            <a href="{{route('deck.list')}}" class="nav-link">{{__('Menu.Decks')}}</a>
         </li>                
         <li class="nav-item">
             <a href="{{route('subject.list')}}" class="nav-link">{{__('Menu.Subjects')}}</a>

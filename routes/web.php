@@ -26,3 +26,9 @@ Route::prefix('subject')->middleware(['auth'])->group(function(){
     Route::get('/edit/{id}', 'SubjectController@Edit')->name('subject.edit');   
     Route::post('/edit/{id}', 'SubjectController@Update')->name('subject.update');   
 });
+
+Route::prefix('deck')->middleware(['auth'])->group(function(){
+    Route::get('/', 'DeckController@Index')->name('deck.list');
+    Route::get('/add', 'DeckController@Create')->name('deck.create');
+    Route::post('/add', 'DeckController@Store')->name('deck.store');
+});
