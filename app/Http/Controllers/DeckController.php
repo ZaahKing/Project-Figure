@@ -20,6 +20,7 @@ class DeckController extends Controller
     {
         return view('deck.create');
     }
+
     public function Store(Request $request)
     {
         $validator = Validator::make($request->all(), Deck::validationMap);
@@ -32,15 +33,10 @@ class DeckController extends Controller
         return redirect()->route('deck.list');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function Show($id)
     {
-        //
+        $deck = Deck::find($id);
+        return $deck;
     }
 
     /**
@@ -75,5 +71,10 @@ class DeckController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function Action(Request $request)
+    {
+        return $request->all();
     }
 }

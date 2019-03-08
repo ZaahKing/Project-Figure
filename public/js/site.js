@@ -21,10 +21,6 @@
             $('input[name="SetId"]').attr('value', $(this).attr('data-set-id'));
         });
 
-        $('button[value=Delete]').on('click', function(event){
-            $('form[name=TestRequest]').attr('action', '/Sets/Delete/');
-        });
-
 
         
 

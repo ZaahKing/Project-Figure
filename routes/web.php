@@ -29,6 +29,8 @@ Route::prefix('subject')->middleware(['auth'])->group(function(){
 
 Route::prefix('deck')->middleware(['auth'])->group(function(){
     Route::get('/', 'DeckController@Index')->name('deck.list');
+    Route::get('/{id}', 'DeckController@Show')->name('deck.show');
     Route::get('/add', 'DeckController@Create')->name('deck.create');
     Route::post('/add', 'DeckController@Store')->name('deck.store');
+    Route::post('/action', 'DeckController@Action')->name('deck.action');
 });
