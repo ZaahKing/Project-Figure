@@ -36,23 +36,16 @@ class DeckController extends Controller
     public function Show($id)
     {
         $deck = Deck::find($id);
-        return $deck;
+        return view('deck.item', compact('deck'));
     }
 
     public function Edit($id)
     {
-        $deck = Deck::find($id);
+        $deck = Deck::find($id)->load('pairs');
         return view('deck.edit', compact('deck'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function Update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), Deck::validationMap);
         if ($validator->fails()) return redirect()->route('deck.edit', [$id])->withInput()->withErrors($validator);
@@ -65,12 +58,6 @@ class DeckController extends Controller
         return redirect()->route('deck.list');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function Destroy(Request $request)
     {
         Deck::destroy($request->input('id'));
