@@ -47,3 +47,9 @@ Route::prefix('pair')->middleware(['auth'])->group(function(){
     Route::post('/delete', 'PairController@Destroy')->name('pair.delete');
     //Route::get('/{id}', 'PairController@Show')->name('pair.show');
 });
+Route::prefix('test')->middleware(['auth'])->group(function(){
+    Route::post('/', 'TestController@MassTest')->name('test.mass');
+    Route::post('/revers', 'TestController@MassRevers')->name('test.mass.revers');
+    Route::get('/{id}', 'TestController@Test')->name('test');
+    Route::get('/revers/{id}', 'TestController@Revers')->name('test.revers');
+});

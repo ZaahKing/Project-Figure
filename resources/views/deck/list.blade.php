@@ -6,10 +6,10 @@
     <div class="container">
         <div class="form-group mb-0">
             <input class="m-2" id="1" type="checkbox" data-toggle="checkbox" data-group-main="list">
-            <button type="submit" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
-            <button type="submit" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
+            <button type="submit" name="action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
+            <button type="submit" name="action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i>{{__('Label.Sets.Add')}}</a>
-            <button id="massDel" type="button" name="Action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
+            <button id="massDel" type="button" name="action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
                             data-target="#massDellingForm">{{__('Label.Delete')}}</button>   
         </div>
     </div>
@@ -30,12 +30,12 @@
     <div class="card-body">
         @foreach ($subject->decks as $deck)
             <div class="form-group ">
-                <input name="Id[]" value="{{$deck->id}}" type="checkbox" data-toggle="checkbox" data-group="list">
+                <input name="id[]" value="{{$deck->id}}" type="checkbox" data-toggle="checkbox" data-group="list">
                 <a class="btn btn-link" href="{{route('deck.show', [$id = $deck->id])}}">
                     {{$deck->name}}</a>
                 <div class="float-right">
-                    <a class="btn btn-success btn-sm" href="Test/Avers/'.$item->Id"><i class="fa fa-rocket"></i> {{__('Menu.Test')}}</a>
-                    <a class="btn btn-success btn-sm" href="Test/Revers/.$item->Id ?>"><i class="fa fa-reply-all"></i> {{__('Menu.ReversTest')}}</a> 
+                    <a class="btn btn-success btn-sm" href="{{route('test', [$id = $deck->id])}}"><i class="fa fa-rocket"></i> {{__('Menu.Test')}}</a>
+                    <a class="btn btn-success btn-sm" href="{{route('test.revers', [$id = $deck->id])}}"><i class="fa fa-reply-all"></i> {{__('Menu.ReversTest')}}</a> 
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a class="btn btn-info btn-sm" href="{{route('deck.edit', [$id => $deck->id])}}"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-danger btn-sm"

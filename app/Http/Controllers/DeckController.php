@@ -66,6 +66,7 @@ class DeckController extends Controller
 
     public function Action(Request $request)
     {
-        return $request->all();
+        $action = $request->input('action');
+        return $action;
     }
 }
