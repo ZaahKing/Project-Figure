@@ -12,7 +12,7 @@
     </div>
     <div class='form-group'>
         <label>{{__('Label.Subject')}}</label>
-        <select class="form-control" name="subject_id">
+        <select class="form-control" name="deck_id">
         @foreach (\App\Models\Subject::where('user_id', \Auth::id())->with('decks')->get() as $subject)
         <optgroup label="{{$subject->name}}">
             @foreach($subject->decks as $deck)

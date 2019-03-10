@@ -37,16 +37,15 @@ class PairController extends Controller
         return view('pair.edit', compact('pair'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function Update(Request $request, $id)
     {
-        //
+        $pair = Pair::find($id);
+        $deckId = $pair->deck_id;
+        $pair->key = $request->input('key');
+        $pair->value = $request->input('value');
+        $pair->deck_id = $request->input('deck_id');
+        $pair->save();
+        return redirect()->route('deck.show', [$id = $deckId]);
     }
 
     public function Destroy(Request $request)
