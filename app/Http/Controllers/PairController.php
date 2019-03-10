@@ -31,9 +31,10 @@ class PairController extends Controller
         return redirect()->route('deck.show', [$id = $deckId]);
     }
 
-    public function edit($id)
+    public function Edit($id)
     {
-        return view('pair.edit');
+        $pair = Pair::find($id);
+        return view('pair.edit', compact('pair'));
     }
 
     /**
@@ -43,7 +44,7 @@ class PairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function Update(Request $request, $id)
     {
         //
     }
