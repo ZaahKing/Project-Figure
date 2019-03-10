@@ -10,7 +10,7 @@
         @php
             $selectedId = old('subject_id');
         @endphp
-        @foreach (\App\Models\Subject::all() as $subject)
+        @foreach (\App\Models\Subject::where('user_id', \Auth::id())->get() as $subject)
             <option value="{{$subject->id}}"
             @if($subject->id == $selectedId)
              selected

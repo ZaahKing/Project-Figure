@@ -12,7 +12,7 @@
         @php
             $selectedId = isset($deck->subject_id) ? $deck->subject_id : old('subject_id');
         @endphp
-        @foreach (\App\Models\Subject::all() as $subject)
+        @foreach (\App\Models\Subject::where('user_id', \Auth::id())->get() as $subject)
             <option value="{{$subject->id}}"
             @if($subject->id == $selectedId)
              selected
