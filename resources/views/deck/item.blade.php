@@ -18,7 +18,7 @@
 </div>
 <div class='collapse' id='addEntitiesForm'>
         <div class="card col-md-6 my-3 mx-auto bg-paleorange p-0">
-            <form method="POST"action="{{route('pair.store')}}"> 
+            <form method="POST"action="{{route('pair.store', [$id = $deck->id])}}"> 
             @csrf
                 <div class="card-body">
                       
@@ -63,29 +63,33 @@ Nothing
 <table class="table table-striped table-dark">
         <thead>
             <tr>
+                <th width="1"></th>
                 <th>{{__('Label.Entity')}}</th>
                 <th>{{__('Label.Link')}}</th>
                 <th width="1"></th>
             </tr>
         </thead>
         <tbody>
+        @php
+        $counter = 0;
+        @endphp
         @foreach ($deck->pairs as $pair)
+        @php
+            $counter ++;
+        @endphp
             <tr>
+                <td>{{$counter}}</td>
                 <td>{{$pair->key}}</td>
                 <td>{{$pair->value}}</td>
                 <td>
                 <div class="btn-group">
-                    <a href='#' class="btn btn-outline-primary btn-sm">
+                    <a href='{{route('pair.edit', [$id = $pair->id])}}' class="btn btn-outline-primary btn-sm">
                         <span class="fas fa-pen"></span></a>
-                    <a href='#' class="btn btn-outline-danger btn-sm">
-                        <span class="far fa-trash-alt"></span></a>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" 
+                    <a href="#" class="btn btn-outline-danger btn-sm" data-toggle="modal" 
                         data-target="#dellingForm"
                         role="delEntity"
-                        data-item-json='echo json_encode($item)'
-                        data-set-id='#'>
-                    L
-                    </a>
+                        data-pair-id="{{$pair->id}}"
+                        data-counter = "{{$counter}}"><span class="far fa-trash-alt"></a>                        
                 </div>
                 
                 </td>
@@ -95,17 +99,36 @@ Nothing
     </table>
 @endif  
 
+<!-- Deletion modal form -->
+<div class="modal fade" id="dellingForm" tabindex="-1" role="dialog" aria-labelledby="modalForm" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-danger">
+            <h3 class="modal-title" id="dellingForm">{{__('Label.Entity.Delete')}}</h3>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="entityDelationForm" action="{{route('pair.delete')}}"  method="POST">
+            @csrf
+            <label>{{__('Label.Entity.Warn')}} "#<span id="counter" class="text text-danger"></span>"?</label>
+                <input name='id' type='hidden' value='' >
+                <div class="form-group text-right">
+                <input type="submit" value="{{__('Label.Delete')}}" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 
 
 </div>
-<script>
-console.log('hello m');
-</script>
  @endsection
 
  @section('scripts')
  <script>
-console.log('hello');
  var AddEntity = {
     Count: 1,
     CloneTemplate:function(){
@@ -128,6 +151,13 @@ $(function(){
         AddEntity.Count +=1;
         AddEntity.CloneTemplate();
      
+    });
+
+    $("#dellingForm").on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        modal.find('input[name=id]').val(button.data('pair-id'));
+        modal.find('span#counter').html(button.data('counter'));
     });
 });
  </script>

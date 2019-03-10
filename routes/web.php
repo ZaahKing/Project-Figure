@@ -40,9 +40,8 @@ Route::prefix('deck')->middleware(['auth'])->group(function(){
 
 Route::prefix('pair')->middleware(['auth'])->group(function(){
     Route::get('/', 'PairController@Index')->name('pair.list');   
-    Route::get('/add', 'PairController@Create')->name('pair.create');
-    Route::post('/add', 'PairController@Store')->name('pair.store');
-    Route::post('/action', 'PairController@Action')->name('pair.action');
+    //Route::get('/add', 'PairController@Create')->name('pair.create');
+    Route::post('/add/deck-{id}', 'PairController@Store')->name('pair.store');
     Route::get('/edit/{id}', 'PairController@Edit')->name('pair.edit');
     Route::post('/update/{id}', 'PairController@Update')->name('pair.update');
     Route::post('/delete', 'PairController@Destroy')->name('pair.delete');

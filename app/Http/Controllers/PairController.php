@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Pair;
 
 class PairController extends Controller
 {
@@ -11,36 +12,28 @@ class PairController extends Controller
         return 'Info about pairs';
     }
 
-    public function create()
+    public function Store(Request $request, $deckId)
     {
-        //
+        $links = $request->input('Link');
+        $values = $request->input('Value');
+        $data = [];   
+        $userId = \Auth::id();
+        for ($index = 1; $index <= count($values); $index++)
+        {
+            $data[] = [
+                'key' => $values[$index],
+                'value' => $links[$index],
+                'deck_id' => $deckId,
+                'user_id' => $userId,
+            ];
+        }
+        Pair::insert($data);
+        return redirect()->route('deck.show', [$id = $deckId]);
     }
 
-    public function store(Request $request)
-    {
-        return $request->all();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('pair.edit');
     }
 
     /**
@@ -55,14 +48,9 @@ class PairController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function Destroy(Request $request)
     {
-        //
+        Pair::destroy($request->input('id'));
+        return redirect()->back();
     }
 }
