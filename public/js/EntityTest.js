@@ -29,9 +29,9 @@ var Entities = {
         this.Current = 0;
     },
     MoveFromTop:function() {
-        if (this.Current == this.Order.length) return;
-        var number = this.Order.length - this.Current;
-        var random = Math.floor(number*Math.random()+1+this.Current);
+        if (this.Current == this.Order.length - 1) return;
+        var number = this.Order.length - this.Current-1;
+        var random = Math.floor(number*Math.random()+this.Current+1);
         var buff = this.Order[this.Current];
         this.Order[this.Current] = this.Order[random];
         this.Order[random] = buff;
