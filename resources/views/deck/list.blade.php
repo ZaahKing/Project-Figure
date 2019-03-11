@@ -6,8 +6,9 @@
     <div class="container">
         <div class="form-group mb-0">
             <input class="m-2" id="1" type="checkbox" data-toggle="checkbox" data-group-main="list">
-            <button type="submit" name="action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
-            <button type="submit" name="action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
+            <input type="hidden" name="Action" value="Delete">
+            <button type="submit" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
+            <button type="submit" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i>{{__('Label.Sets.Add')}}</a>
             <button id="massDel" type="button" name="action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
                             data-target="#massDellingForm">{{__('Label.Delete')}}</button>   
@@ -111,7 +112,7 @@
         <div class="modal-body">
                 <label>{{__('Label.Subjects.Warn')}} <span id='deckName' class="text text-danger">$Model->Name;</span>?</label>
                 <div class="form-group text-right">
-                <input id="confirmMassDeletion" type="button" value="{{__('Label.Delete')}}" class="btn btn-danger">
+                <input id="confirmMassDeletion" name='Action' type="button" value="{{__('Label.Delete')}}" class="btn btn-danger">
                 </div>
         </div>
     </div>
@@ -129,15 +130,14 @@ $(function(){
         modal.find('input[name=id]').val(button.data('deck-id'));
         modal.find('span#deckName').html(button.data('deck-name'));
     });  
+    
     $("#addingForm").on('show.bs.modal', function (event) {
         $(this).find('input[name=name]').focus();
     }); 
 
- $('#confirmMassDeletion').on('click', function(event){
+    $('#confirmMassDeletion').on('click', function(event){
         $("form[name='TestRequest']").submit();
     });
-
-
 });
 </script>
 <script src="/js/CheckboxesGroupes.js"></script>
