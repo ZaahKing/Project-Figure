@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Pair;
+use \App\Models\Deck;
 
 class PairController extends Controller
 {
@@ -52,5 +53,16 @@ class PairController extends Controller
     {
         Pair::destroy($request->input('id'));
         return redirect()->back();
+    }
+
+    public function Join(Request $request)
+    {
+        $reciverId = $request->input('reciver_id');
+        $sourceId = $request->input('source_id');
+        Pair::where('deck_id', $sourceId)
+            ->where('user_id', \Auth::id())
+            ->update(['deck_id' => $reciverId]);
+        Deck::destroy($sourceId);
+        return redirect()->route('deck.show', [$id = $reciverId]);
     }
 }

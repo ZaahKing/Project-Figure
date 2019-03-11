@@ -36,6 +36,7 @@ Route::prefix('pair')->middleware(['auth'])->group(function(){
     Route::get('/edit/{id}', 'PairController@Edit')->name('pair.edit');
     Route::post('/update/{id}', 'PairController@Update')->name('pair.update');
     Route::post('/delete', 'PairController@Destroy')->name('pair.delete');
+    Route::post('/join', 'PairController@Join')->name('pair.join');
 });
 
 Route::prefix('test')->middleware(['auth'])->group(function(){

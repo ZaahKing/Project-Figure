@@ -12,9 +12,9 @@
     </button>
     <a href='#' class="btn btn-success"><i class="fa fa-rocket"></i> {{__('Menu.Test')}}</a>
     <a href='#' class="btn btn-success"><i class="fa fa-reply-all"></i> {{__('Menu.ReversTest')}}</a>
-    <a href='#' class="btn btn-outline-info">
+    <a href='#' class="btn btn-outline-info" data-toggle="modal" data-target="#joinForm" aria-expanded="false" aria-controls="#joinForm">
         <i class="fa fa-object-ungroup"></i>
-        {{__('Label.Join')}}</a>
+        {{__('Label.JoinTo')}}</a>
 </div>
 <div class='collapse' id='addEntitiesForm'>
         <div class="card col-md-6 my-3 mx-auto bg-paleorange p-0">
@@ -54,9 +54,6 @@
             </form>
         </div>
     </div>
-
-
-
 @if($deck->pairs->isEmpty())
 Nothing
 @else
@@ -98,13 +95,50 @@ Nothing
         </tbody>
     </table>
 @endif  
+</div>
 
+<!-- JoinTo modal form -->
+<div class="modal fade shadow-large" id="joinForm" tabindex="-1" role="dialog" aria-labelledby="modalForm" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-paleorange">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addingFormLabel">{{__('Label.Sets.Add')}}</h3>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form id="deckJoinForm" action="{{route('pair.join')}}"  method="POST">
+            <input type="hidden" name="source_id" value="{{$deck->id}}">
+            @csrf
+            <div class='form-group'>
+                <label>{{__('Label.Select.Deck')}}</label>
+                <select class="form-control" name="reciver_id">
+                @foreach (\App\Models\Subject::where('user_id', \Auth::id())->with('decks')->get() as $subject)
+                <optgroup label="{{$subject->name}}">
+                    @foreach($subject->decks as $deck)
+                    <option value="{{$deck->id}}">                                   
+                        {{$deck->name}}
+                    </option>
+                    @endforeach
+                </optgroup>
+                @endforeach
+                </select>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="{{__('Label.Add')}}" class="btn btn-primary">
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Deletion modal form -->
 <div class="modal fade" id="dellingForm" tabindex="-1" role="dialog" aria-labelledby="modalForm" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header bg-danger">
-            <h3 class="modal-title" id="dellingForm">{{__('Label.Entity.Delete')}}</h3>
+            <h3 class="modal-title">{{__('Label.Entity.Delete')}}</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -121,9 +155,6 @@ Nothing
         </div>
     </div>
 </div>
-</div>
-
-
 </div>
  @endsection
 
