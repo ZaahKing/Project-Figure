@@ -74,6 +74,7 @@ class DeckController extends Controller
 
     public function DestroyMany(Request $request)
     {
-        return $request->all();
+        Deck::destroy($request->input('id'));
+        return redirect()->route('deck.list');
     }
 }
