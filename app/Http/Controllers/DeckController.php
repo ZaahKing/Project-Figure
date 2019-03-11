@@ -67,6 +67,13 @@ class DeckController extends Controller
     public function Action(Request $request)
     {
         $action = $request->input('Action');
+        if ($action === 'Delete') return redirect()->action('DeckController@DeleteMany');
+        if ($action === 'Test') return redirect()->action('TestController@MassTest');
         return $action;
+    }
+
+    public function DestroyMany(Request $request)
+    {
+        return $request->all();
     }
 }

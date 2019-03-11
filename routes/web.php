@@ -1,15 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::pattern('id', '[0-9]+');
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,18 +26,18 @@ Route::prefix('deck')->middleware(['auth'])->group(function(){
     Route::get('/edit/{id}', 'DeckController@Edit')->name('deck.edit');
     Route::post('/update/{id}', 'DeckController@Update')->name('deck.update');
     Route::post('/delete', 'DeckController@Destroy')->name('deck.delete');
+    Route::post('/delete/many', 'DeckController@DestroyMany')->name('deck.delete.many');
     Route::get('/{id}', 'DeckController@Show')->name('deck.show');
 });
 
 Route::prefix('pair')->middleware(['auth'])->group(function(){
     Route::get('/', 'PairController@Index')->name('pair.list');   
-    //Route::get('/add', 'PairController@Create')->name('pair.create');
     Route::post('/add/deck-{id}', 'PairController@Store')->name('pair.store');
     Route::get('/edit/{id}', 'PairController@Edit')->name('pair.edit');
     Route::post('/update/{id}', 'PairController@Update')->name('pair.update');
     Route::post('/delete', 'PairController@Destroy')->name('pair.delete');
-    //Route::get('/{id}', 'PairController@Show')->name('pair.show');
 });
+
 Route::prefix('test')->middleware(['auth'])->group(function(){
     Route::post('/', 'TestController@MassTest')->name('test.mass');
     Route::post('/revers', 'TestController@MassRevers')->name('test.mass.revers');

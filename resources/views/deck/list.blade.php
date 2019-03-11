@@ -6,9 +6,8 @@
     <div class="container">
         <div class="form-group mb-0">
             <input class="m-2" id="1" type="checkbox" data-toggle="checkbox" data-group-main="list">
-            <input type="hidden" name="Action" value="Delete">
-            <button type="submit" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
-            <button type="submit" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
+            <button id="test" type="button" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list">{{__('Menu.Test')}}</button>
+            <button id="revers" type="button" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list">{{__('Menu.ReversTest')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i>{{__('Label.Sets.Add')}}</a>
             <button id="massDel" type="button" name="action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
                             data-target="#massDellingForm">{{__('Label.Delete')}}</button>   
@@ -136,7 +135,15 @@ $(function(){
     }); 
 
     $('#confirmMassDeletion').on('click', function(event){
-        $("form[name='TestRequest']").submit();
+        $("form[name='TestRequest']").attr('action', "{{route('deck.delete.many')}}").submit();
+    });
+
+    $('#test').on('click', function(event){
+        $("form[name='TestRequest']").attr('action', "{{route('test.mass')}}").submit();
+    });
+
+    $('#revers').on('click', function(event){
+        $("form[name='TestRequest']").attr('action', "{{route('test.mass.revers')}}").submit();
     });
 });
 </script>
