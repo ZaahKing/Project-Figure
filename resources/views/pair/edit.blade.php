@@ -1,17 +1,17 @@
-@extends('layouts.card', [$title = __('Deck.Edit'), $label = $title])
+@extends('layouts.card', [$title = __('pair.edit'), $label = $title])
 @section('card-body')                          
     <form id="setForm" action="{{route('pair.update', [$id = $pair->id])}}"  method="POST">   
     @csrf            
     <div class='form-group'>
-        <label>{{__('Label.Key')}}</label>
-        <input name='key' class="form-control" type="text" placeholder="{{__('Label.Title')}}" value="{{$pair->key}}">
+        <label>{{__('label.key')}}</label>
+        <input name='key' class="form-control" type="text" placeholder="{{__('label.key')}}" value="{{$pair->key}}">
     </div>
     <div class='form-group'>
-        <label>{{__('Label.Value')}}</label>
-        <input name='value' class="form-control" type="text" placeholder="{{__('Label.Title')}}" value="{{$pair->value}}">
+        <label>{{__('label.value')}}</label>
+        <input name='value' class="form-control" type="text" placeholder="{{__('label.value')}}" value="{{$pair->value}}">
     </div>
     <div class='form-group'>
-        <label>{{__('Label.Subject')}}</label>
+        <label>{{__('pair.ask_deck')}}</label>
         <select class="form-control" name="deck_id">
         @foreach (\App\Models\Subject::where('user_id', \Auth::id())->with('decks')->get() as $subject)
         <optgroup label="{{$subject->name}}">
@@ -29,7 +29,7 @@
         </select>
     </div>
     <div class="form-group text-right">
-        <input type="submit" value="{{__('Label.Add')}}" class="btn btn-primary">
+        <input type="submit" value="{{__('label.update')}}" class="btn btn-primary">
     </div>
 </form>
 @endsection

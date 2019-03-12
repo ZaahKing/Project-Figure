@@ -102,7 +102,7 @@ Nothing
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-paleorange">
             <div class="modal-header">
-                <h3 class="modal-title" id="addingFormLabel">{{__('Label.Sets.Add')}}</h3>
+                <h3 class="modal-title" id="addingFormLabel">{{__('deck.join')}}</h3>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -112,7 +112,7 @@ Nothing
             <input type="hidden" name="source_id" value="{{$deck->id}}">
             @csrf
             <div class='form-group'>
-                <label>{{__('Label.Select.Deck')}}</label>
+                <label>{{__('pair.ask_deck')}}</label>
                 <select class="form-control" name="reciver_id">
                 @foreach (\App\Models\Subject::where('user_id', \Auth::id())->with('decks')->get() as $subject)
                 <optgroup label="{{$subject->name}}">
@@ -126,7 +126,7 @@ Nothing
                 </select>
             </div>
             <div class="form-group text-right">
-                <input type="submit" value="{{__('Label.Add')}}" class="btn btn-primary">
+                <input type="submit" value="{{__('label.join')}}" class="btn btn-primary">
             </div>
             </form>
             </div>
@@ -138,7 +138,7 @@ Nothing
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header bg-danger">
-            <h3 class="modal-title">{{__('Label.Entity.Delete')}}</h3>
+            <h3 class="modal-title">{{__('pair.delete')}}</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -146,10 +146,10 @@ Nothing
         <div class="modal-body">
             <form id="entityDelationForm" action="{{route('pair.delete')}}"  method="POST">
             @csrf
-            <label>{{__('Label.Entity.Warn')}} "#<span id="counter" class="text text-danger"></span>"?</label>
+            <label>{{__('pair.msg001')}} "#<span id="counter" class="text text-danger"></span>"?</label>
                 <input name='id' type='hidden' value='' >
                 <div class="form-group text-right">
-                <input type="submit" value="{{__('Label.Delete')}}" class="btn btn-danger">
+                <input type="submit" value="{{__('label.delete')}}" class="btn btn-danger">
                 </div>
             </form>
         </div>

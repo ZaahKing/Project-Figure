@@ -11,6 +11,8 @@ return [
     'help' => 'Help',
     'subjects' => 'Subjects',
     'decks' => 'Decks',
+    'pairs' => 'Pairs',
+    'pair' => 'Pair',
     'test' => 'Test',
     'revers' => 'Revers test',
     'learning' => 'Lerning',
@@ -34,6 +36,7 @@ return [
     'description' => 'Description',
     'key' => 'Key',
     'value' => 'Value',
+    'join' => 'join', //--
     'joinTo' => 'Join to',
     'hide' => 'Hide',  //-- be //-- ru
 
