@@ -38,23 +38,33 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/i/hello-jt-1.jpg" alt="" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>{{__('label.welcom')}}</h1>
-                    <p>__Phrase.Better__</p>
+                <div class="carousel-caption d-none d-md-block jumbotron jumbotron-fluid bg-transparent">
+                    <div class="container">
+                        <h1 class="display-2">{{__('label.welcom')}}</h1>
+                        <p>__Phrase.Better__</p>
+                    </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/i/hello-jt-2.jpg" alt="" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>...</h3>
-                    <p>...</p>
+                    <div class="jumbotron jumbotron-fluid bg-transparent">
+                        <div class="container">
+                            <h1 class="display-2"style="text-shadow: 3px 3px 15px #000;">Fluid jumbotron</h1>
+                            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        </div>
+                        </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/i/hello-jt-3.jpg" alt="" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>...</h3>
-                    <p>...</p>
+                    <div class="jumbotron jumbotron-fluid bg-primary">
+                    <div class="container">
+                        <h1 class="display-4">Fluid jumbotron</h1>
+                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>

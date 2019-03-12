@@ -2,7 +2,7 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content  bg-paleorange">
         <div class="modal-header">
-            <h3 class="modal-title" id="modalFormLabel">{{__('Menu.Authorization')}}</h3>
+            <h3 class="modal-title" id="modalFormLabel">{{__('label.login')}}</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -11,22 +11,22 @@
             <form action="{{ route('login') }}"  method="POST">
             @csrf
                 <div class="form-group">
-                    <label for="inputEmail">{{__('Login.Login')}}</label>
-                    <input name="email"  type="text" class="form-control" id="inputEmail" placeholder="{{__('Login.EmailPlaceholder')}}" aria-describdby="emailHelp">
+                    <label for="inputEmail">{{__('label.email')}}</label>
+                    <input name="email"  type="text" class="form-control" id="inputEmail" placeholder="{{__('label.email_exemple')}}" aria-describdby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword">{{__('Login.Password')}}</label>
-                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="{{__('Login.PassPlaceholder')}}" aria-describdby="passwordHelp">
+                    <label for="inputPassword">{{__('label.password')}}</label>
+                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="{{__('label.pass_holder')}}" aria-describdby="passwordHelp">
                 </div>
                 <input name="BackUri" type="hidden" value="__back_URI__" />
                 <div class="form-group">
                     <input id="remember" type="checkbox">
-                    <label for="notMyDevice">{{__('Login.RememberMe')}}</label>
+                    <label for="notMyDevice"> {{__('label.remember')}}</label>
                 </div>
                 
                 <div class="form-group d-flex justify-content-between">
-                    <a href="#">{{__('Login.Forgot')}}</a>
-                    <button type="submit" class="btn btn-primary">{{__('Label.SignIn')}}</button>
+                    <a href="#" disabled>{{__('label.forgot')}}</a>
+                    <button type="submit" class="btn btn-primary">{{__('label.confirm')}}</button>
                 </div>
             </form>
         </div>

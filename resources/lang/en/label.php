@@ -22,6 +22,13 @@ return [
     'menu' => 'Menu',
     'welcom' => 'Welcom',
     'prev' => 'Previouse',
-    'next' => 'Next',//-- be, ru
+    'next' => 'Next',
+    'email' => 'Email address',
+    'email_exemple' => 'exemple@memorizer.by',
+    'password' => 'Password',
+    'pass_holder' => 'Sequrity code',
+    'confirm' => 'Confirm',
+    'remember' => 'remember me',
+    'forgot' => 'I forgot my password', //-- be //-- ru
 
 ];

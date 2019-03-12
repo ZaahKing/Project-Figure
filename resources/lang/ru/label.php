@@ -23,5 +23,12 @@ return [
     'welcom' => 'Здравствуйте',
     'prev' => 'Предыдущий',
     'next' => 'Следующий',
+    'email' => 'Адрес электронной почты',
+    'email_exemple' => 'exemple@memorizer.by',
+    'password' => 'Пароль',
+    'pass_holder' => 'Секретный пароль',
+    'confirm' => 'Подтвардить',
+    'remember' => 'запомнить',
+    'forgot' => 'Я забыл свой пароль'
 
 ];
