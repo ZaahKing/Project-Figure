@@ -5,7 +5,7 @@ return [
     'update' => 'Deck updating',
     'delete' => 'Deck delation',
     'deleteMany' => 'Decks deletion',
-    'morePair' => 'Ones more pair',
+    'morePair' => 'One more pair',
 
 
     'msg001' => 'Are you realy want to dalete the deck ',

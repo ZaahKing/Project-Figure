@@ -33,8 +33,8 @@ return [
     'name' => 'Name',
     'description' => 'Description',
     'key' => 'Key',
-    'value' => 'Value', //-- be //-- ru
+    'value' => 'Value',
     'joinTo' => 'Join to',
-    'hide' => 'Hide'
+    'hide' => 'Hide',  //-- be //-- ru
 
 ];
