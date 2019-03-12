@@ -1,4 +1,4 @@
-@extends('layouts.card', [$title = __('deck.update'), $label = $title])
+@extends('layouts.card', [$title = __('deck.edit'), $label = $title])
 @section('card-body')                          
     <form id="setForm" action="{{route('deck.update', [$id = $deck->id])}}"  method="POST">   
     @csrf            

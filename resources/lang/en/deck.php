@@ -3,6 +3,7 @@ return [
     'ask_subject' => 'Choose a subject',
     'create' => 'Deck creating',
     'update' => 'Deck updating',
+    'edit' => 'Deck editing',
     'delete' => 'Deck deletion',
     'deleteMany' => 'Decks deletion',
     'join' => 'Deck joining',
