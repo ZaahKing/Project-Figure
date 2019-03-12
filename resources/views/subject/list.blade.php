@@ -2,12 +2,11 @@
 @section('content')
 
 <div class="container">
-<h2>{{__('Subject.Label')}}</h2>
+<h2><span class="mr-5">{{__('Subject.Label')}}</span> <a class="btn btn-info" data-toggle="modal" data-target="#addingForm" data-focus="true"><i class="fa fa-plus"></i> {{__('Label.Subjects.Add')}}</a></h2>
 
 @if ($list->isEmpty())  
  NOthing
 @else
-    <a class="btn btn-info" data-toggle="modal" data-target="#addingForm" data-focus="true"><i class="fa fa-plus"></i> {{__('Label.Subjects.Add')}}</a>
     <div class="row b-flex align-items-stretch">
     @foreach ($list as $item)
     <div class="col-md-6 col-lg-4 p-2">
