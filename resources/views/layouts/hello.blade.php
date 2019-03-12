@@ -21,7 +21,7 @@
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        _Menu_T
+        {{__('label.menu')}}
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,7 +39,7 @@
             <div class="carousel-item active">
                 <img src="/i/hello-jt-1.jpg" alt="" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>__Label.Welcome__</h3>
+                    <h1>{{__('label.welcom')}}</h1>
                     <p>__Phrase.Better__</p>
                 </div>
             </div>
@@ -60,11 +60,11 @@
         </div>
         <a href="#caruselHello" class="carousel-control-prev" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">__Previous__</span>
+            <span class="sr-only">{{__('label.prev')}}</span>
         </a>
         <a href="#caruselHello" class="carousel-control-next" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">__Next__</span>
+            <span class="sr-only">{{__('label.next')}}</span>
         </a>
     </div>
     @yield('content')
