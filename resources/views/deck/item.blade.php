@@ -7,31 +7,31 @@
     <button class="btn btn-info" data-toggle="collapse" 
         data-target="#addEntitiesForm" aria-expanded="false" aria-controls="#addEntitiesForm">
         <i class="fa fa-plus"></i>
-        {{__('Label.Sets.AddPairs')}}
+        {{__('label.add')}}
         <i class="fa fa-caret-down"></i>
     </button>
-    <a href='#' class="btn btn-success"><i class="fa fa-rocket"></i> {{__('Menu.Test')}}</a>
-    <a href='#' class="btn btn-success"><i class="fa fa-reply-all"></i> {{__('Menu.ReversTest')}}</a>
+    <a href='#' class="btn btn-success"><i class="fa fa-rocket"></i> {{__('label.test')}}</a>
+    <a href='#' class="btn btn-success"><i class="fa fa-reply-all"></i> {{__('label.revers')}}</a>
     <a href='#' class="btn btn-outline-info" data-toggle="modal" data-target="#joinForm" aria-expanded="false" aria-controls="#joinForm">
         <i class="fa fa-object-ungroup"></i>
-        {{__('Label.JoinTo')}}</a>
+        {{__('label.joinTo')}}</a>
 </div>
 <div class='collapse' id='addEntitiesForm'>
         <div class="card col-md-6 my-3 mx-auto bg-paleorange p-0">
             <form method="POST"action="{{route('pair.store', [$id = $deck->id])}}"> 
             @csrf
                 <div class="card-body">
-                      
+
                     <div  id="entityAddTemplate" class="d-none" data-identy="Group">   
                         <div class="form-group">
-                            <label>{{__('Label.Entity')}}</label>
+                            <label>{{__('label.key')}}</label>
                             <input type="text" class="form-control" data-identy="Value">
                         </div><div class="form-group">
-                            <label>{{__('Label.Link')}}</label>
+                            <label>{{__('label.value')}}</label>
                             <input type="text" class="form-control" data-identy="Link">
                         </div>
                         <div class="form-group">
-                            <a href="#" class="btn btn-outline-danger btn-sm d-none" data-identy="Del"><i class="fa fa-trash-alt"></i> Delete</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm d-none" data-identy="Del"><i class="fa fa-trash-alt"></i> {{__('label.delete')}}</a>
                             
                         </div>
                     </div>
@@ -40,16 +40,16 @@
                 <div class="card-footer d-flex justify-content-between">
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-info"  data-toggle="collapse" data-target="#addEntitiesForm" aria-expanded="false" aria-controls="#addEntitiesForm">
-                            {{__('Label.HideForm')}}
+                            {{__('label.hide')}}
                             <i class="fa fa-caret-up"></i> 
                         </button>
                         <button type="button" class="btn btn-info" id="addPairBtn"> 
                             <i class="fa fa-plus"></i>
-                            {{__('Label.Sets.AddPairs')}}
+                            {{__('deck.morePair')}}
                                 
                         </button>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="formSubmit">{{__('Label.Add')}}</button>
+                    <button type="submit" class="btn btn-primary" id="formSubmit">{{__('label.add')}}</button>
                 </div>
             </form>
         </div>
@@ -61,8 +61,8 @@ Nothing
         <thead>
             <tr>
                 <th width="1"></th>
-                <th>{{__('Label.Entity')}}</th>
-                <th>{{__('Label.Link')}}</th>
+                <th>{{__('label.key')}}</th>
+                <th>{{__('label.value')}}</th>
                 <th width="1"></th>
             </tr>
         </thead>

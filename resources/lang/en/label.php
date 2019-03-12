@@ -29,6 +29,12 @@ return [
     'pass_holder' => 'Sequrity code',
     'confirm' => 'Confirm',
     'remember' => 'remember me',
-    'forgot' => 'I forgot my password', //-- be //-- ru
+    'forgot' => 'I forgot my password',
+    'name' => 'Name',
+    'description' => 'Description',
+    'key' => 'Key',
+    'value' => 'Value', //-- be //-- ru
+    'joinTo' => 'Join to',
+    'hide' => 'Hide'
 
 ];
