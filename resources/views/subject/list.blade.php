@@ -1,8 +1,8 @@
-@extends('layouts.app', ['title' => __('Subject.ListTitle')])
+@extends('layouts.app', ['title' => __('label.subjects')])
 @section('content')
 
 <div class="container">
-<h2><span class="mr-5">{{__('Subject.Label')}}</span> <a class="btn btn-info" data-toggle="modal" data-target="#addingForm" data-focus="true"><i class="fa fa-plus"></i> {{__('Label.Subjects.Add')}}</a></h2>
+<h2><span class="mr-5">{{__('label.subjects')}}</span> <a class="btn btn-info" data-toggle="modal" data-target="#addingForm" data-focus="true"><i class="fa fa-plus"></i> {{__('label.add')}}</a></h2>
 
 @if ($list->isEmpty())  
  NOthing
@@ -34,7 +34,7 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content bg-paleorange">
         <div class="modal-header">
-            <h3 class="modal-title" id="addingFormLabel">{{__('Label.Subjects.Add')}}</h3>
+            <h3 class="modal-title" id="addingFormLabel">{{__('label.add')}}</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -50,7 +50,7 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header bg-danger">
-            <h3 class="modal-title" id="dellingForm">{{__('Label.Subjects.Delete')}}</h3>
+            <h3 class="modal-title" id="dellingForm">{{__('subj.delete')}}</h3>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -58,10 +58,10 @@
         <div class="modal-body">
             <form id="subjectForm" action="{{route('subject.delete')}}"  method="POST">
             @csrf
-                <label>{{__('Label.Subjects.Warn')}} <span id='subjId' class="text text-danger">$Model->Name</span>"?</label>
-                <input name='id' type='hidden' value='1232123'>
+                <label>{{__('subj.msg001')}} "<span id='subjId' class="text text-danger"></span>"?</label>
+                <input name='id' type='hidden' value='0'>
                 <div class="form-group text-right">
-                <input type="submit" value="{{__('Label.Delete')}}" class="btn btn-danger">
+                <input type="submit" value="{{__('label.delete')}}" class="btn btn-danger">
                 </div>
             </form>
         </div>
