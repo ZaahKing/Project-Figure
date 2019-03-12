@@ -31,7 +31,7 @@
                             <input type="text" class="form-control" data-identy="Link">
                         </div>
                         <div class="form-group">
-                            <a href="#" class="btn btn-outline-danger btn-sm d-none" data-identy="Del"><i class="fa fa-trash-alt"></i> {{__('label.delete')}}</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm d-none" data-identy="Del"><i class="far fa-trash-alt"></i> {{__('label.delete')}}</a>
                             
                         </div>
                     </div>
