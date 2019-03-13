@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Subject.ListTitle')])
+@extends('layouts.app', ['title' => __('label.deck').': '.$deck->name])
 @section('content')
 <div class="container">
     <h2>{{$deck->name}}</h2>

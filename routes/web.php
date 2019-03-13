@@ -9,6 +9,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'InfoController@About')->name('about');
+Route::get('/contacts', 'InfoController@Contacts')->name('contacts');
+Route::get('/me', 'InfoController@Portfolio')->name('me');
 
 Route::prefix('subject')->middleware(['auth'])->group(function(){
     Route::get('/', 'SubjectController@Index')->name('subject.list');
