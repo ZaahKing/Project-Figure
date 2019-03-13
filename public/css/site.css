@@ -15,7 +15,25 @@
   background-color:rgb(184, 184, 184)!important;
 }
 
+/* where many text */
+.chapter {
+    font-weight: 300;
+    font-size:1.33em;
+}
+.chapter h1, .chapter h2{
 
+    color:black;
+    margin-top:1em;
+    margin-bottom: 0.5em;
+}
+.chapter p{
+    color: var(--dark);
+    text-indent: 2.5em;
+    text-align: justify;
+}
+.chapter img {
+    margin: 1em;
+}
 
 /* Fix some bootstrap feutures!!! */
 .modal-header{
