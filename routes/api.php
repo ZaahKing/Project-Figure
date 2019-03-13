@@ -16,8 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/artisan/{password}/migrate', function ($password) {
-    if ($password === 'qwerty_1982') return Artisan::call('migrate');
-    return redirect('/');
-});
