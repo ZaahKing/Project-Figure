@@ -8,16 +8,16 @@ class InfoController extends Controller
 {
     public function About()
     {
-        return view('info.about');
-    } 
+        return view('info.about_'.\App::getLocale());
+    }
 
     public function Contacts()
     {
         return view('info.contacts');
-    } 
+    }
 
     public function Portfolio()
     {
         return view('info.me');
-    } 
+    }
 }
