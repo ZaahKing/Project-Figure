@@ -14,6 +14,10 @@
 .bg-test{
   background-color:rgb(184, 184, 184)!important;
 }
+.bg-verylightgrey
+{
+    background-color:#bbb!important;
+}
 
 /* where many text */
 .chapter {
