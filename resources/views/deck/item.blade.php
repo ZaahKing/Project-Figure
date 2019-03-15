@@ -4,14 +4,15 @@
     <h2>{{$deck->name}}</h2>
 
 <div id="setEditTool" class="mb-1">
+    <a href='{{route('learning', [$id = $deck->id])}}' class="btn btn-primary"><i class="fab fa-stack-overflow"></i> {{__('label.learning')}}</a>
+    <a href='{{route('test', [$id = $deck->id])}}' class="btn btn-success"><i class="fa fa-rocket"></i> {{__('label.test')}}</a>
+    <a href='{{route('test.revers', [$id = $deck->id])}}' class="btn btn-success"><i class="fa fa-reply-all"></i> {{__('label.revers')}}</a>
     <button class="btn btn-info" data-toggle="collapse"
         data-target="#addEntitiesForm" aria-expanded="false" aria-controls="#addEntitiesForm">
         <i class="fa fa-plus"></i>
         {{__('label.add')}}
         <i class="fa fa-caret-down"></i>
     </button>
-    <a href='{{route('test', [$id = $deck->id])}}' class="btn btn-success"><i class="fa fa-rocket"></i> {{__('label.test')}}</a>
-    <a href='{{route('test.revers', [$id = $deck->id])}}' class="btn btn-success"><i class="fa fa-reply-all"></i> {{__('label.revers')}}</a>
     <a href='#' class="btn btn-outline-info" data-toggle="modal" data-target="#joinForm" aria-expanded="false" aria-controls="#joinForm">
         <i class="fa fa-object-ungroup"></i>
         {{__('label.joinTo')}}</a>

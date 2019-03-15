@@ -6,6 +6,7 @@
     <div class="container">
         <div class="form-group mb-0">
             <input class="m-2" id="1" type="checkbox" data-toggle="checkbox" data-group-main="list">
+            <button id="learning" type="button" name="Action" value="Test" class="btn btn-primary" data-grope-enebled="list"><i class="fab fa-stack-overflow"></i> {{__('label.learning')}}</button>
             <button id="test" type="button" name="Action" value="Test" class="btn btn-success" data-grope-enebled="list"><i class="fas fa-rocket"></i> {{__('label.test')}}</button>
             <button id="revers" type="button" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i> {{__('label.add')}}</a>
@@ -33,9 +34,12 @@
                 <a class="btn btn-link" href="{{route('deck.show', [$id = $deck->id])}}">
                     {{$deck->name}}</a>
                 <div class="float-right">
-                    <a class="btn btn-success btn-sm" href="{{route('test', [$id = $deck->id])}}"><i class="fas fa-rocket"></i> {{__('label.test')}}</a>
-                    <a class="btn btn-success btn-sm" href="{{route('test.revers', [$id = $deck->id])}}"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</a>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group" role="group" aria-label="Study">
+                        <a class="btn btn-primary btn-sm" href="{{route('learning', [$id = $deck->id])}}"><i class="fab fa-stack-overflow"></i> {{__('label.learning')}}</a>
+                        <a class="btn btn-success btn-sm" href="{{route('test', [$id = $deck->id])}}"><i class="fas fa-rocket"></i> {{__('label.test')}}</a>
+                        <a class="btn btn-success btn-sm" href="{{route('test.revers', [$id = $deck->id])}}"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Tools">
                         <a class="btn btn-info btn-sm" href="{{route('deck.edit', [$id => $deck->id])}}"><i class="fas fa-pen"></i></a>
                         <a class="btn btn-danger btn-sm"
                             href="#"
@@ -136,6 +140,10 @@ $(function(){
 
     $('#confirmMassDeletion').on('click', function(event){
         $("form[name='TestRequest']").attr('action', "{{route('deck.delete.many')}}").submit();
+    });
+
+    $('#learning').on('click', function(event){
+        $("form[name='TestRequest']").attr('action', "{{route('learning.mass')}}").submit();
     });
 
     $('#test').on('click', function(event){
