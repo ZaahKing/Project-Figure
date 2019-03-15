@@ -21,7 +21,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         {{ Auth::user()->name }}</a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="/Account/Profile/">{{__('label.profile')}}</a>
+                <a class="dropdown-item" href="{{route('settings')}}">{{__('label.settings')}}</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">{{__('label.logout')}}</a>
