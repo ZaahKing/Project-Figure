@@ -2,7 +2,7 @@
 
 return [
     'profile' => 'Прафайл',
-    'settings' => 'Settings',
+    'settings' => 'Наладкі',
     'login' => 'Аўтарызацыя',
     'logout' => 'Выйсці',
     'registration' => 'Рэгістрацыя',
