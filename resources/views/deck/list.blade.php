@@ -10,13 +10,13 @@
             <button id="revers" type="button" name="Action" value="Revers" class="btn btn-success" data-grope-enebled="list"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</button>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#addingForm"><i class="fa fa-plus"></i> {{__('label.add')}}</a>
             <button id="massDel" type="button" name="action" value="Delete" class="btn btn-danger" data-grope-enebled="list" data-toggle="modal"
-                            data-target="#massDellingForm"><i class="far fa-trash-alt"></i> {{__('label.delete')}}</button>   
+                            data-target="#massDellingForm"><i class="far fa-trash-alt"></i> {{__('label.delete')}}</button>
         </div>
     </div>
     </nav>
 <div class="container mt-1">
 
-@if ($subjects->isEmpty())  
+@if ($subjects->isEmpty())
     Nothing
 @else
 @foreach ($subjects as $subject)
@@ -25,7 +25,7 @@
     <div class="card mb-2 border border-info">
     <div class="card-header bg-lightblue">
         <h4>{{$subject->name}}</h4>
-    </div>                
+    </div>
     <div class="card-body">
         @foreach ($subject->decks as $deck)
             <div class="form-group ">
@@ -34,7 +34,7 @@
                     {{$deck->name}}</a>
                 <div class="float-right">
                     <a class="btn btn-success btn-sm" href="{{route('test', [$id = $deck->id])}}"><i class="fas fa-rocket"></i> {{__('label.test')}}</a>
-                    <a class="btn btn-success btn-sm" href="{{route('test.revers', [$id = $deck->id])}}"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</a> 
+                    <a class="btn btn-success btn-sm" href="{{route('test.revers', [$id = $deck->id])}}"><i class="fas fa-reply-all"></i> {{__('label.revers')}}</a>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a class="btn btn-info btn-sm" href="{{route('deck.edit', [$id => $deck->id])}}"><i class="fas fa-pen"></i></a>
                         <a class="btn btn-danger btn-sm"
@@ -43,17 +43,18 @@
                             data-target="#dellingForm"
                             data-deck-id="{{$deck->id}}"
                             data-deck-name="{{$deck->name}}"
-                            role="delDeck"><i class="far fa-trash-alt"></i></a> 
+                            role="delDeck"><i class="far fa-trash-alt"></i></a>
                     </div>
-                </div>  
+                </div>
             </div>
         @endforeach
     </div>
 </div>
 @endif
 @endforeach
-            
+
 @endif
+</div>
 </form>
 
 <!-- Adding modal form -->
@@ -127,11 +128,11 @@ $(function(){
         var modal = $(this);
         modal.find('input[name=id]').val(button.data('deck-id'));
         modal.find('span#deckName').html(button.data('deck-name'));
-    });  
-    
+    });
+
     $("#addingForm").on('show.bs.modal', function (event) {
         $(this).find('input[name=name]').focus();
-    }); 
+    });
 
     $('#confirmMassDeletion').on('click', function(event){
         $("form[name='TestRequest']").attr('action', "{{route('deck.delete.many')}}").submit();
