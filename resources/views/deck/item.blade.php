@@ -117,9 +117,9 @@ Nothing
                 <select class="form-control" name="reciver_id">
                 @foreach (\App\Models\Subject::where('user_id', \Auth::id())->with('decks')->get() as $subject)
                 <optgroup label="{{$subject->name}}">
-                    @foreach($subject->decks as $deck)
-                    <option value="{{$deck->id}}">
-                        {{$deck->name}}
+                    @foreach($subject->decks as $item)
+                    <option value="{{$item->id}}">
+                        {{$item->name}}
                     </option>
                     @endforeach
                 </optgroup>
