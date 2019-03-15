@@ -39,8 +39,9 @@ return [
     'description' => 'Description',
     'key' => 'Key',
     'value' => 'Value',
-    'join' => 'join', //--
+    'join' => 'join',
     'joinTo' => 'Join to',
-    'hide' => 'Hide',  //-- be //-- ru
+    'hide' => 'Hide',
+    'change' => 'Change'  //-- be //-- ru
 
 ];

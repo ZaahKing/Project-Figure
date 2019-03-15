@@ -14,7 +14,7 @@ class CheckLocalization
      * @return mixed
      */
 
-    private const SuportedLanguages = array (
+    public const SuportedLanguages = array (
         'be' => 'Беларуская',
         'en' => 'English',
         'ru' => 'Русский'
@@ -24,7 +24,7 @@ class CheckLocalization
     {
         $locale = null;
         if(\Auth::check()) $locale = \Auth::user()->locale;
-        
+
         //if in base notset check browser
         if (!isset($locale)) {
             $sections = explode(';', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
@@ -46,7 +46,7 @@ class CheckLocalization
                         }
                     }
                 }
-                if (isset($locale))        
+                if (isset($locale))
                     break;
             }
         }

@@ -10,6 +10,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/settings', 'HomeController@Settings')->name('settings');
+Route::post('/locale', 'HomeController@ChangeLocale')->name('locale');
 Route::get('/about', 'InfoController@About')->name('about');
 Route::get('/contacts', 'InfoController@Contacts')->name('contacts');
 Route::get('/me', 'InfoController@Portfolio')->name('me');
