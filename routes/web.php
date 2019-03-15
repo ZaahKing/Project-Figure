@@ -2,9 +2,7 @@
 
 Route::pattern('id', '[0-9]+');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'InfoController@Welcome');
 
 Auth::routes();
 
