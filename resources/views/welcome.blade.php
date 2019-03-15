@@ -1,5 +1,8 @@
 @extends('layouts.hello')
 @section('content')
+@guest
+    @include('info.about_'.\App::getLocale())
+@else
 <div class="wrapper">
         <div class="demo-header demo-header-image profile-background">
                 <div class="motto">
@@ -8,4 +11,5 @@
                 </div>
         </div>
     </div>
+@endguest
 @endsection
