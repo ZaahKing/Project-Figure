@@ -34,12 +34,12 @@ class TestController extends Controller
     public function MassLearning(Request $request)
     {
         $data = Pair::where('user_id', \Auth::id())->whereIn('deck_id', $request->input('id'))->get();
-        return view('test.test', compact('data'));
+        return view('test.learning', compact('data'));
     }
 
     public function Learning($id)
     {
         $data = Pair::where('user_id', \Auth::id())->where('deck_id', $id)->get();
-        return view('test.test', compact('data'))->with(['revers'=>true]);
+        return view('test.learning', compact('data'))->with(['revers'=>true]);
     }
 }
