@@ -27,27 +27,13 @@ class CheckLocalization
 
         //if in base notset check browser
         if (!isset($locale)) {
-            $sections = explode(';', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $sections = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
             foreach ($sections as $section) {
-                $parts = explode(',', $section);
-                foreach ($parts as $part) {
-                    if ($part[0]=='q' && $part[1]=='=') continue;
-                    if (isset(self::SuportedLanguages[$part])) {
-                        $locale = $part;
-                        break;
-                    }
-                    else {
-                        if (strlen($part)>2){
-                            $subPart = substr($part, 0, 2);
-                            if (isset(self::SuportedLanguages[$subPart])) {
-                                $locale = $subPart;
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (isset($locale))
+                $parts = explode(';', $section);
+                if (isset(self::SuportedLanguages[$parts[0]])) {
+                    $locale = $parts[0];
                     break;
+                }
             }
         }
 
