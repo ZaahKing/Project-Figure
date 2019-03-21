@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Subject::class);
     }
+
+    public function google_user()
+    {
+        return $this->hasOne(\App\Models\GoogleUser::class);
+    }
 }

@@ -5,6 +5,11 @@ Route::pattern('id', '[0-9]+');
 Route::get('/', 'InfoController@Welcome');
 
 Auth::routes();
+Route::prefix('oauth')->group(function(){
+    Route::get('/google/redirect', 'Auth\LoginController@redirectToGoogle');
+    Route::get('/google/handle', 'Auth\LoginController@handleGoogleCallback');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/settings', 'HomeController@Settings')->name('settings');
