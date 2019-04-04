@@ -65,6 +65,10 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn-link text-dark" href="{{route('google')}}"><i class="fab fa-google"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -23,12 +23,16 @@
                     <input id="remember" type="checkbox">
                     <label for="notMyDevice"> {{__('label.remember')}}</label>
                 </div>
-                
+
                 <div class="form-group d-flex justify-content-between">
                     <a href="#" disabled>{{__('label.forgot')}}</a>
                     <button type="submit" class="btn btn-primary">{{__('label.confirm')}}</button>
                 </div>
             </form>
+            <hr>
+            <div class="d-flex justify-content-center">
+                <a class="btn-link text-dark" href="{{route('google')}}"><i class="fab fa-google"></i></a>
+            </div>
         </div>
     </div>
 </div>

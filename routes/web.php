@@ -6,7 +6,7 @@ Route::get('/', 'InfoController@Welcome');
 
 Auth::routes();
 Route::prefix('oauth')->group(function(){
-    Route::get('/google/redirect', 'Auth\LoginController@redirectToGoogle');
+    Route::get('/google/redirect', 'Auth\LoginController@redirectToGoogle')->name('google');
     Route::get('/google/handle', 'Auth\LoginController@handleGoogleCallback');
 });
 
