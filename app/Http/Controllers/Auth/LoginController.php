@@ -47,28 +47,25 @@ class LoginController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $user = Socialite::driver('google')->user();
+            $googleUserToken = Socialite::driver('google')->user();
         } catch (\Exception $e) {
             return redirect('/login');
         }
-        dd($user);
-        // $existingUser = \App\User::where('email', $user->email)->first();
+        $login = $googleUserToken->id . '-' . $googleUserToken->email;
+        $user = \App\User::where('login', $login)->first();
 
-        // if($existingUser){
-        //     // log them in
-        //     auth()->login($existingUser, true);
-        // } else {
-        //     // create a new user
-        //     $newUser                  = new \App\User;
-        //     $newUser->name            = $user->name;
-        //     $newUser->email           = $user->email;
-        //     $newUser->google_id       = $user->id;
-        //     $newUser->avatar          = $user->avatar;
-        //     $newUser->avatar_original = $user->avatar_original;
-        //     $newUser->save();
+        if(!isset($user))
+        {
+            $user = \App\User::create([
+                'login' => $login,
+                'name' => $googleUserToken->name,
+                'email' => $googleUserToken->email,
+                'password' =>''
+            ]);
+            \App\Models\GoogleUser::create(['user_id' => $user->id, 'google_id' => $googleUserToken->id]);
+        }
 
-        //     auth()->login($newUser, true);
-        // }
+        auth()->login($user, true);
         return redirect()->to('/');
     }
 
