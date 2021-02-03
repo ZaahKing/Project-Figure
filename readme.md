@@ -5,7 +5,7 @@ This is simple web app, which helps to learn informational pairs like foreign wo
 
 ### Deploy
 
-Time to time I deploy new version on [memorizer.tk](http://memorizer.tk/)
+Time to time I deploy new version on [http://zaah-memory.000webhostapp.com/](http://zaah-memory.000webhostapp.com/)
 
 
 
